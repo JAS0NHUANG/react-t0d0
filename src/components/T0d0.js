@@ -1,6 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { MEDIA_QUERY_S, MEDIA_QUERY_M, MEDIA_QUERY_L } from '../constants/Breakpoint'
+import React        from 'react'
+import styled       from 'styled-components'
+import { 
+  MEDIA_QUERY_S,
+  MEDIA_QUERY_M,
+  MEDIA_QUERY_L
+}                   from '../constants/Breakpoint'
 
 const Main = styled.main`
   margin: 0;

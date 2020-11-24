@@ -26,6 +26,7 @@ export default function useT0d0() {
 
   function handleSubmit(event) {
     event.preventDefault()
+    if (event.target[0].value === "") return
     setT0d0s([{
       isDone: false, 
       t0d0Id: id, 

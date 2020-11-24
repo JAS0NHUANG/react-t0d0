@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState }  from 'react'
+import styled               from 'styled-components'
 
 const T0d0FormStyled = styled.form`
   margin-top: 8px;
@@ -22,7 +22,12 @@ const T0d0Input = styled.input`
 export default function T0d0Form ({ value, handleSubmit, handleInput }) {
   return(
     <T0d0FormStyled action="" onSubmit={handleSubmit}>
-      <T0d0Input type="text" placeholder="what to do?" value={value} onChange={handleInput}/>
+      <T0d0Input 
+        type="text"
+        placeholder="what to do?"
+        value={value}
+        onChange={handleInput}
+      />
     </T0d0FormStyled>
   )
 }
