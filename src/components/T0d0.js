@@ -62,6 +62,8 @@ const T0d0NavLi = styled.li`
     }
   }
   span {
+    background: #eee;
+    color: #222;
     display: none;
     ${MEDIA_QUERY_M} {
       display: inline-block;
@@ -69,7 +71,12 @@ const T0d0NavLi = styled.li`
   }
 `
 
-function T0d0NavItem ({ content, isLast, handleFilter, handleClearDone }) {
+const FocusedNavLi = styled(T0d0NavLi)`
+  background: #999;
+  color: #fff;
+`
+
+function T0d0NavItem ({ content, isLast, handleFilter, handleClearDone, filter }) {
   function handler (event) {
     if (content === "CLEAR DONE") {
       handleClearDone()
@@ -78,24 +85,31 @@ function T0d0NavItem ({ content, isLast, handleFilter, handleClearDone }) {
     }
   }
 
+  let ReturnedNavLi
+  if (filter === content) {
+    ReturnedNavLi = FocusedNavLi
+  } else {
+    ReturnedNavLi = T0d0NavLi
+  }
+
   return (
-    <T0d0NavLi>
+    <ReturnedNavLi>
       <div onClick={handler}>{content}</div>
       {isLast ? "" : (<span> | </span>)}
-    </T0d0NavLi>
+    </ReturnedNavLi>
   )
 }
 
-export default function T0d0 ({ children, handleFilter, handleClearDone }) {
+export default function T0d0 ({ children, handleFilter, handleClearDone, filter}) {
   return (
     <Main>
       <T0d0Header>
         <T0d0Title># T0D0</T0d0Title>
         <nav>
           <T0d0NavUl>
-            <T0d0NavItem isLast={false} content="ALL" handleFilter={handleFilter} />
-            <T0d0NavItem isLast={false} content="ACTIVE" handleFilter={handleFilter} />
-            <T0d0NavItem isLast={false} content="DONE" handleFilter={handleFilter} />
+            <T0d0NavItem isLast={false} content="ALL" handleFilter={handleFilter} filter={filter} />
+            <T0d0NavItem isLast={false} content="ACTIVE" handleFilter={handleFilter} filter={filter} />
+            <T0d0NavItem isLast={false} content="DONE" handleFilter={handleFilter} filter={filter} />
             <T0d0NavItem isLast={false} content="CLEAR DONE" handleClearDone={handleClearDone} />
             <T0d0NavItem isLast={true} content="SAVE" />
           </T0d0NavUl>

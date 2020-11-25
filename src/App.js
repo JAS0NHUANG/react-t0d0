@@ -22,7 +22,7 @@ function App() {
   return(
     <div>
       <GlobalStyle />
-      <T0d0 handleFilter={handleFilter} handleClearDone={handleClearDone} >
+      <T0d0 handleFilter={handleFilter} handleClearDone={handleClearDone} filter={filter}>
         {
           t0d0s
             .filter( t0d0 => {
